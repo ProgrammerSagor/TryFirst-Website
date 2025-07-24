@@ -1,0 +1,1225 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Try First, Buy Later - Premium Products</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- FontAwesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <!-- Custom CSS -->
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+
+    <!-- Tailwind Custom Config -->
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: {
+                50: "#fdf4ff",
+                100: "#fae8ff",
+                500: "#a855f7",
+                600: "#9333ea",
+                700: "#7c3aed",
+                800: "#6b21a8",
+                900: "#581c87",
+              },
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body
+    class="transition-colors duration-300 bg-white dark:bg-gray-900 text-gray-900 dark:text-white"
+  >
+    <!-- Navigation -->
+    <nav
+      class="fixed top-0 w-full bg-white/80 dark:bg-gray-900/80 backdrop-blur-md z-50 border-b border-gray-200 dark:border-gray-700"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+          <!-- Logo -->
+          <div class="flex items-center">
+            <i class="fas fa-gem text-primary-600 text-2xl mr-2"></i>
+            <span class="text-xl font-bold">TryFirst</span>
+          </div>
+
+          <!-- Desktop Navigation -->
+          <div class="hidden md:flex items-center space-x-8">
+            <a
+              href="#how-it-works"
+              class="hover:text-primary-600 transition-colors"
+              >How It Works</a
+            >
+            <a href="#products" class="hover:text-primary-600 transition-colors"
+              >Products</a
+            >
+            <a
+              href="#testimonials"
+              class="hover:text-primary-600 transition-colors"
+              >Reviews</a
+            >
+            <a href="#pricing" class="hover:text-primary-600 transition-colors"
+              >Pricing</a
+            >
+
+            <!-- Theme Toggle -->
+            <button
+              id="theme-toggle"
+              class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+            >
+              <i class="fas fa-sun text-yellow-500 dark:hidden"></i>
+              <i class="fas fa-moon text-blue-500 hidden dark:block"></i>
+            </button>
+          </div>
+
+          <!-- Mobile Menu Button -->
+          <div class="md:hidden flex items-center">
+            <button
+              id="theme-toggle-mobile"
+              class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors mr-2"
+            >
+              <i class="fas fa-sun text-yellow-500 dark:hidden"></i>
+              <i class="fas fa-moon text-blue-500 hidden dark:block"></i>
+            </button>
+            <button id="mobile-menu-toggle" class="p-2">
+              <i class="fas fa-bars"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden pb-4">
+          <div class="flex flex-col space-y-2">
+            <a
+              href="#how-it-works"
+              class="py-2 hover:text-primary-600 transition-colors"
+              >How It Works</a
+            >
+            <a
+              href="#products"
+              class="py-2 hover:text-primary-600 transition-colors"
+              >Products</a
+            >
+            <a
+              href="#testimonials"
+              class="py-2 hover:text-primary-600 transition-colors"
+              >Reviews</a
+            >
+            <a
+              href="#pricing"
+              class="py-2 hover:text-primary-600 transition-colors"
+              >Pricing</a
+            >
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section
+      class="pt-20 pb-16 bg-gradient-to-br from-primary-50 to-pink-50 dark:from-gray-900 dark:to-primary-900"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center">
+          <h1
+            class="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-primary-600 to-pink-600 bg-clip-text text-transparent"
+          >
+            Try Before You Commit
+          </h1>
+          <p
+            class="text-xl md:text-2xl mb-8 text-gray-600 dark:text-gray-300 max-w-3xl mx-auto"
+          >
+            Experience premium products risk-free with our 7-day trial program.
+            Perfect fit guaranteed or your money back.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <button
+              class="bg-primary-600 hover:bg-primary-700 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all transform hover:scale-105 shadow-lg"
+            >
+              <i class="fas fa-play mr-2"></i>
+              Start 7-Day Trial
+            </button>
+            <button
+              class="border border-primary-600 text-primary-600 hover:bg-primary-600 hover:text-white px-8 py-4 rounded-full text-lg font-semibold transition-all"
+            >
+              <i class="fas fa-info-circle mr-2"></i>
+              Learn More
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Problem → Solution Hook -->
+    <section class="py-16 bg-white dark:bg-gray-900">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h2
+            class="text-3xl md:text-4xl font-bold mb-6 text-red-600 dark:text-red-400"
+          >
+            <i class="fas fa-exclamation-triangle mr-3"></i>
+            Stop Wasting Money on the Wrong Fit
+          </h2>
+          <p
+            class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto mb-8"
+          >
+            Online shopping shouldn't be a gamble. Too many purchases end up
+            unused, returned, or forgotten in drawers.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <div class="bg-red-50 dark:bg-red-900/20 p-8 rounded-2xl">
+            <h3 class="text-2xl font-bold mb-4 text-red-600 dark:text-red-400">
+              <i class="fas fa-times-circle mr-2"></i>
+              The Problem
+            </h3>
+            <ul class="space-y-3 text-gray-700 dark:text-gray-300">
+              <li class="flex items-start">
+                <i class="fas fa-arrow-right text-red-500 mr-3 mt-1"></i>
+                <span>60% of online purchases don't meet expectations</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-arrow-right text-red-500 mr-3 mt-1"></i>
+                <span>Expensive return shipping and restocking fees</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-arrow-right text-red-500 mr-3 mt-1"></i>
+                <span>Uncertainty about size, comfort, and quality</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-arrow-right text-red-500 mr-3 mt-1"></i>
+                <span>Wasted time and frustration with wrong choices</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="bg-green-50 dark:bg-green-900/20 p-8 rounded-2xl">
+            <h3
+              class="text-2xl font-bold mb-4 text-green-600 dark:text-green-400"
+            >
+              <i class="fas fa-check-circle mr-2"></i>
+              Our Solution
+            </h3>
+            <ul class="space-y-3 text-gray-700 dark:text-gray-300">
+              <li class="flex items-start">
+                <i class="fas fa-arrow-right text-green-500 mr-3 mt-1"></i>
+                <span>Try products at home for 7 full days</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-arrow-right text-green-500 mr-3 mt-1"></i>
+                <span>Free shipping both ways, no hidden fees</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-arrow-right text-green-500 mr-3 mt-1"></i>
+                <span>Only pay if you love it and decide to keep it</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-arrow-right text-green-500 mr-3 mt-1"></i>
+                <span>100% satisfaction guarantee or full refund</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works -->
+    <section id="how-it-works" class="py-16 bg-gray-50 dark:bg-gray-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold mb-6">
+            <i class="fas fa-cogs mr-3 text-primary-600"></i>
+            How It Works
+          </h2>
+          <p class="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+            Simple, transparent, and risk-free. Get started in just 3 easy
+            steps.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="text-center group">
+            <div
+              class="bg-primary-100 dark:bg-primary-900/30 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform"
+            >
+              <i class="fas fa-search text-primary-600 text-2xl"></i>
+            </div>
+            <div
+              class="bg-primary-600 text-white rounded-full w-8 h-8 flex items-center justify-center mx-auto mb-4 text-sm font-bold"
+            >
+              1
+            </div>
+            <h3 class="text-xl font-bold mb-4">Choose & Order</h3>
+            <p class="text-gray-600 dark:text-gray-300">
+              Browse our curated selection and order your trial. No upfront
+              payment required.
+            </p>
+          </div>
+
+          <div class="text-center group">
+            <div
+              class="bg-primary-100 dark:bg-primary-900/30 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform"
+            >
+              <i class="fas fa-heart text-primary-600 text-2xl"></i>
+            </div>
+            <div
+              class="bg-primary-600 text-white rounded-full w-8 h-8 flex items-center justify-center mx-auto mb-4 text-sm font-bold"
+            >
+              2
+            </div>
+            <h3 class="text-xl font-bold mb-4">Try at Home</h3>
+            <p class="text-gray-600 dark:text-gray-300">
+              Experience the product in your daily routine for 7 full days. Live
+              with it, love it.
+            </p>
+          </div>
+
+          <div class="text-center group">
+            <div
+              class="bg-primary-100 dark:bg-primary-900/30 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform"
+            >
+              <i class="fas fa-thumbs-up text-primary-600 text-2xl"></i>
+            </div>
+            <div
+              class="bg-primary-600 text-white rounded-full w-8 h-8 flex items-center justify-center mx-auto mb-4 text-sm font-bold"
+            >
+              3
+            </div>
+            <h3 class="text-xl font-bold mb-4">Keep or Return</h3>
+            <p class="text-gray-600 dark:text-gray-300">
+              Love it? Keep it and pay. Not perfect? Return it free with no
+              questions asked.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Top Product Picks -->
+    <section id="products" class="py-16 bg-white dark:bg-gray-900">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold mb-6">
+            <i class="fas fa-star mr-3 text-yellow-500"></i>
+            Top Product Picks
+          </h2>
+          <p class="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+            Discover our most loved products, handpicked by our community of
+            trial users.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+          <!-- Product 1 -->
+          <div
+            class="bg-gray-50 dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all group"
+          >
+            <div
+              class="h-64 bg-gradient-to-br from-pink-200 to-purple-200 dark:from-pink-800 dark:to-purple-800 flex items-center justify-center"
+            >
+              <i
+                class="fas fa-tshirt text-6xl text-purple-600 dark:text-purple-300"
+              ></i>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-2">Premium Comfort Wear</h3>
+              <div class="flex items-center mb-3">
+                <div class="flex text-yellow-400 mr-2">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+                <span class="text-sm text-gray-600 dark:text-gray-400"
+                  >(4.9/5 • 2,341 reviews)</span
+                >
+              </div>
+              <p class="text-gray-600 dark:text-gray-300 mb-4">
+                Ultra-soft, breathable fabric that adapts to your body. Perfect
+                for all-day comfort.
+              </p>
+              <div class="flex justify-between items-center">
+                <span class="text-2xl font-bold text-primary-600">$89</span>
+                <button
+                  class="bg-primary-600 hover:bg-primary-700 text-white px-4 py-2 rounded-full text-sm font-semibold transition-colors"
+                >
+                  <i class="fas fa-play mr-1"></i>
+                  Try Free
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product 2 -->
+          <div
+            class="bg-gray-50 dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all group"
+          >
+            <div
+              class="h-64 bg-gradient-to-br from-blue-200 to-teal-200 dark:from-blue-800 dark:to-teal-800 flex items-center justify-center"
+            >
+              <i
+                class="fas fa-running text-6xl text-teal-600 dark:text-teal-300"
+              ></i>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-2">Athletic Performance Gear</h3>
+              <div class="flex items-center mb-3">
+                <div class="flex text-yellow-400 mr-2">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+                <span class="text-sm text-gray-600 dark:text-gray-400"
+                  >(4.8/5 • 1,892 reviews)</span
+                >
+              </div>
+              <p class="text-gray-600 dark:text-gray-300 mb-4">
+                Moisture-wicking technology meets superior comfort. Engineered
+                for peak performance.
+              </p>
+              <div class="flex justify-between items-center">
+                <span class="text-2xl font-bold text-primary-600">$124</span>
+                <button
+                  class="bg-primary-600 hover:bg-primary-700 text-white px-4 py-2 rounded-full text-sm font-semibold transition-colors"
+                >
+                  <i class="fas fa-play mr-1"></i>
+                  Try Free
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product 3 -->
+          <div
+            class="bg-gray-50 dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all group"
+          >
+            <div
+              class="h-64 bg-gradient-to-br from-green-200 to-emerald-200 dark:from-green-800 dark:to-emerald-800 flex items-center justify-center"
+            >
+              <i
+                class="fas fa-leaf text-6xl text-emerald-600 dark:text-emerald-300"
+              ></i>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-2">Eco-Friendly Essentials</h3>
+              <div class="flex items-center mb-3">
+                <div class="flex text-yellow-400 mr-2">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star-half-alt"></i>
+                </div>
+                <span class="text-sm text-gray-600 dark:text-gray-400"
+                  >(4.7/5 • 1,567 reviews)</span
+                >
+              </div>
+              <p class="text-gray-600 dark:text-gray-300 mb-4">
+                Sustainable materials, exceptional quality. Good for you and the
+                planet.
+              </p>
+              <div class="flex justify-between items-center">
+                <span class="text-2xl font-bold text-primary-600">$76</span>
+                <button
+                  class="bg-primary-600 hover:bg-primary-700 text-white px-4 py-2 rounded-full text-sm font-semibold transition-colors"
+                >
+                  <i class="fas fa-play mr-1"></i>
+                  Try Free
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Benefits Grid -->
+    <section
+      class="py-16 bg-gradient-to-br from-primary-50 to-pink-50 dark:from-gray-800 dark:to-primary-900"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold mb-6">
+            <i class="fas fa-medal mr-3 text-primary-600"></i>
+            Why Choose TryFirst?
+          </h2>
+          <p class="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+            Experience the triple promise of Comfort, Confidence, and
+            Convenience.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+          <!-- Comfort -->
+          <div class="text-center group">
+            <div
+              class="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all group-hover:-translate-y-2"
+            >
+              <div
+                class="bg-blue-100 dark:bg-blue-900/30 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6"
+              >
+                <i class="fas fa-cloud text-blue-600 text-3xl"></i>
+              </div>
+              <h3
+                class="text-2xl font-bold mb-4 text-blue-600 dark:text-blue-400"
+              >
+                Comfort
+              </h3>
+              <p class="text-gray-600 dark:text-gray-300 mb-6">
+                Every product is designed with your comfort in mind. Soft
+                materials, perfect fits, and thoughtful details.
+              </p>
+              <ul
+                class="text-left space-y-2 text-sm text-gray-600 dark:text-gray-400"
+              >
+                <li class="flex items-center">
+                  <i class="fas fa-check text-blue-500 mr-2"></i>
+                  <span>Premium materials</span>
+                </li>
+                <li class="flex items-center">
+                  <i class="fas fa-check text-blue-500 mr-2"></i>
+                  <span>Ergonomic design</span>
+                </li>
+                <li class="flex items-center">
+                  <i class="fas fa-check text-blue-500 mr-2"></i>
+                  <span>All-day wearability</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Confidence -->
+          <div class="text-center group">
+            <div
+              class="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all group-hover:-translate-y-2"
+            >
+              <div
+                class="bg-green-100 dark:bg-green-900/30 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6"
+              >
+                <i class="fas fa-shield-alt text-green-600 text-3xl"></i>
+              </div>
+              <h3
+                class="text-2xl font-bold mb-4 text-green-600 dark:text-green-400"
+              >
+                Confidence
+              </h3>
+              <p class="text-gray-600 dark:text-gray-300 mb-6">
+                Shop with complete confidence knowing you can try before you
+                buy. No regrets, no waste.
+              </p>
+              <ul
+                class="text-left space-y-2 text-sm text-gray-600 dark:text-gray-400"
+              >
+                <li class="flex items-center">
+                  <i class="fas fa-check text-green-500 mr-2"></i>
+                  <span>7-day trial period</span>
+                </li>
+                <li class="flex items-center">
+                  <i class="fas fa-check text-green-500 mr-2"></i>
+                  <span>Money-back guarantee</span>
+                </li>
+                <li class="flex items-center">
+                  <i class="fas fa-check text-green-500 mr-2"></i>
+                  <span>No-questions-asked returns</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Convenience -->
+          <div class="text-center group">
+            <div
+              class="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all group-hover:-translate-y-2"
+            >
+              <div
+                class="bg-purple-100 dark:bg-purple-900/30 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6"
+              >
+                <i class="fas fa-truck text-purple-600 text-3xl"></i>
+              </div>
+              <h3
+                class="text-2xl font-bold mb-4 text-purple-600 dark:text-purple-400"
+              >
+                Convenience
+              </h3>
+              <p class="text-gray-600 dark:text-gray-300 mb-6">
+                Simple ordering, fast delivery, and hassle-free returns.
+                Shopping made easy.
+              </p>
+              <ul
+                class="text-left space-y-2 text-sm text-gray-600 dark:text-gray-400"
+              >
+                <li class="flex items-center">
+                  <i class="fas fa-check text-purple-500 mr-2"></i>
+                  <span>Free shipping both ways</span>
+                </li>
+                <li class="flex items-center">
+                  <i class="fas fa-check text-purple-500 mr-2"></i>
+                  <span>Easy online ordering</span>
+                </li>
+                <li class="flex items-center">
+                  <i class="fas fa-check text-purple-500 mr-2"></i>
+                  <span>24/7 customer support</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Before & After Images -->
+    <section class="py-16 bg-white dark:bg-gray-900">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold mb-6">
+            <i class="fas fa-exchange-alt mr-3 text-primary-600"></i>
+            See the Difference
+          </h2>
+          <p class="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+            Real transformations from real customers who tried our products.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-12">
+          <!-- Before/After Comparison 1 -->
+          <div class="bg-gray-50 dark:bg-gray-800 rounded-2xl p-8">
+            <h3 class="text-xl font-bold mb-6 text-center">
+              Comfort Transformation
+            </h3>
+            <div class="grid grid-cols-2 gap-4">
+              <div class="text-center">
+                <div
+                  class="bg-red-100 dark:bg-red-900/30 h-40 rounded-lg flex items-center justify-center mb-4"
+                >
+                  <div class="text-center">
+                    <i class="fas fa-frown text-red-500 text-3xl mb-2"></i>
+                    <p class="text-sm text-red-600 dark:text-red-400">
+                      Uncomfortable
+                    </p>
+                  </div>
+                </div>
+                <h4 class="font-semibold text-red-600 dark:text-red-400">
+                  BEFORE
+                </h4>
+                <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">
+                  Stiff, restrictive clothing that limits movement and comfort.
+                </p>
+              </div>
+              <div class="text-center">
+                <div
+                  class="bg-green-100 dark:bg-green-900/30 h-40 rounded-lg flex items-center justify-center mb-4"
+                >
+                  <div class="text-center">
+                    <i class="fas fa-smile text-green-500 text-3xl mb-2"></i>
+                    <p class="text-sm text-green-600 dark:text-green-400">
+                      Comfortable
+                    </p>
+                  </div>
+                </div>
+                <h4 class="font-semibold text-green-600 dark:text-green-400">
+                  AFTER
+                </h4>
+                <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">
+                  Flexible, breathable fabric that moves with your body
+                  naturally.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Before/After Comparison 2 -->
+          <div class="bg-gray-50 dark:bg-gray-800 rounded-2xl p-8">
+            <h3 class="text-xl font-bold mb-6 text-center">Confidence Boost</h3>
+            <div class="grid grid-cols-2 gap-4">
+              <div class="text-center">
+                <div
+                  class="bg-orange-100 dark:bg-orange-900/30 h-40 rounded-lg flex items-center justify-center mb-4"
+                >
+                  <div class="text-center">
+                    <i
+                      class="fas fa-question text-orange-500 text-3xl mb-2"
+                    ></i>
+                    <p class="text-sm text-orange-600 dark:text-orange-400">
+                      Uncertain
+                    </p>
+                  </div>
+                </div>
+                <h4 class="font-semibold text-orange-600 dark:text-orange-400">
+                  BEFORE
+                </h4>
+                <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">
+                  Unsure about fit, quality, and whether it's worth the money.
+                </p>
+              </div>
+              <div class="text-center">
+                <div
+                  class="bg-blue-100 dark:bg-blue-900/30 h-40 rounded-lg flex items-center justify-center mb-4"
+                >
+                  <div class="text-center">
+                    <i class="fas fa-thumbs-up text-blue-500 text-3xl mb-2"></i>
+                    <p class="text-sm text-blue-600 dark:text-blue-400">
+                      Confident
+                    </p>
+                  </div>
+                </div>
+                <h4 class="font-semibold text-blue-600 dark:text-blue-400">
+                  AFTER
+                </h4>
+                <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">
+                  Completely satisfied with the perfect fit and premium quality.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="py-16 bg-gray-50 dark:bg-gray-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold mb-6">
+            <i class="fas fa-comments mr-3 text-primary-600"></i>
+            What Our Customers Say
+          </h2>
+          <p class="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+            Real stories from real people who tried our products and loved them.
+          </p>
+        </div>
+
+        <div class="testimonial-slider">
+          <div class="grid md:grid-cols-3 gap-8">
+            <!-- Testimonial 1 -->
+            <div class="bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-lg">
+              <div class="flex items-center mb-4">
+                <div
+                  class="bg-primary-100 dark:bg-primary-900/30 w-12 h-12 rounded-full flex items-center justify-center mr-4"
+                >
+                  <i class="fas fa-user text-primary-600"></i>
+                </div>
+                <div>
+                  <h4 class="font-semibold">Sarah Johnson</h4>
+                  <p class="text-sm text-gray-600 dark:text-gray-400">
+                    Verified Buyer
+                  </p>
+                </div>
+              </div>
+              <div class="flex text-yellow-400 mb-4">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <p class="text-gray-700 dark:text-gray-300 italic">
+                "I was skeptical at first, but the 7-day trial convinced me. The
+                comfort level is incredible, and I wear it every day now. Best
+                purchase I've made this year!"
+              </p>
+            </div>
+
+            <!-- Testimonial 2 -->
+            <div class="bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-lg">
+              <div class="flex items-center mb-4">
+                <div
+                  class="bg-primary-100 dark:bg-primary-900/30 w-12 h-12 rounded-full flex items-center justify-center mr-4"
+                >
+                  <i class="fas fa-user text-primary-600"></i>
+                </div>
+                <div>
+                  <h4 class="font-semibold">Mike Chen</h4>
+                  <p class="text-sm text-gray-600 dark:text-gray-400">
+                    Verified Buyer
+                  </p>
+                </div>
+              </div>
+              <div class="flex text-yellow-400 mb-4">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <p class="text-gray-700 dark:text-gray-300 italic">
+                "The try-before-you-buy concept is genius. I've never been more
+                confident in an online purchase. The quality exceeded my
+                expectations completely."
+              </p>
+            </div>
+
+            <!-- Testimonial 3 -->
+            <div class="bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-lg">
+              <div class="flex items-center mb-4">
+                <div
+                  class="bg-primary-100 dark:bg-primary-900/30 w-12 h-12 rounded-full flex items-center justify-center mr-4"
+                >
+                  <i class="fas fa-user text-primary-600"></i>
+                </div>
+                <div>
+                  <h4 class="font-semibold">Emma Davis</h4>
+                  <p class="text-sm text-gray-600 dark:text-gray-400">
+                    Verified Buyer
+                  </p>
+                </div>
+              </div>
+              <div class="flex text-yellow-400 mb-4">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <p class="text-gray-700 dark:text-gray-300 italic">
+                "Finally, a company that understands online shopping anxiety!
+                The trial period gave me peace of mind, and the product quality
+                is outstanding."
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Video Section -->
+    <section class="py-16 bg-white dark:bg-gray-900">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold mb-6">
+            <i class="fas fa-play-circle mr-3 text-primary-600"></i>
+            See How It Works
+          </h2>
+          <p class="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+            Watch our quick video to see exactly how our trial process works.
+          </p>
+        </div>
+
+        <div class="max-w-4xl mx-auto">
+          <div
+            class="relative bg-gray-200 dark:bg-gray-700 rounded-2xl overflow-hidden aspect-video"
+          >
+            <!-- Video Tag -->
+            <video
+              id="promoVideo"
+              class="w-full h-full object-cover"
+              poster="your-thumbnail.jpg"
+            >
+              <source src="../static/videos/v.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+
+            <!-- Play Button -->
+            <div
+              id="playButton"
+              class="absolute inset-0 flex items-center justify-center z-20 cursor-pointer"
+            >
+              <button
+                class="bg-primary-600 hover:bg-primary-700 text-white rounded-full w-20 h-20 flex items-center justify-center transition-all hover:scale-110 shadow-2xl"
+              >
+                <i class="fas fa-play text-2xl ml-1"></i>
+              </button>
+            </div>
+
+            <!-- Caption -->
+            <div class="absolute bottom-12 left-4 right-4 z-10">
+              <div
+                class="bg-black/50 backdrop-blur-sm rounded-lg p-4 text-white"
+              >
+                <h3 class="font-bold mb-2">How Our 7-Day Trial Works</h3>
+                <p class="text-sm">
+                  See the complete process from ordering to keeping your perfect
+                  products.
+                </p>
+              </div>
+            </div>
+
+            <!-- Dark Overlay -->
+            <div
+              id="videoOverlay"
+              class="absolute inset-0 bg-black/40 z-10"
+            ></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing Comparison -->
+    <section
+      id="pricing"
+      class="py-16 bg-gradient-to-br from-primary-50 to-pink-50 dark:from-gray-800 dark:to-primary-900"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold mb-6">
+            <i class="fas fa-balance-scale mr-3 text-primary-600"></i>
+            Trial vs. Full Purchase
+          </h2>
+          <p class="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+            Compare the traditional buying experience with our revolutionary
+            trial program.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <!-- Traditional Purchase -->
+          <div class="bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-lg">
+            <div class="text-center mb-6">
+              <i class="fas fa-shopping-cart text-4xl text-gray-500 mb-4"></i>
+              <h3 class="text-2xl font-bold text-gray-700 dark:text-gray-300">
+                Traditional Purchase
+              </h3>
+            </div>
+
+            <div class="space-y-4">
+              <div class="flex items-center justify-between">
+                <span class="text-gray-600 dark:text-gray-400"
+                  >Product Cost</span
+                >
+                <span class="font-semibold">$89.00</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-gray-600 dark:text-gray-400">Shipping</span>
+                <span class="font-semibold">$9.99</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-gray-600 dark:text-gray-400"
+                  >Return Shipping</span
+                >
+                <span class="font-semibold text-red-600">$12.99</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-gray-600 dark:text-gray-400"
+                  >Restocking Fee</span
+                >
+                <span class="font-semibold text-red-600">$8.90</span>
+              </div>
+              <hr class="border-gray-300 dark:border-gray-600" />
+              <div class="flex items-center justify-between font-bold text-lg">
+                <span>Total Risk</span>
+                <span class="text-red-600">$120.88</span>
+              </div>
+            </div>
+
+            <div class="mt-6 text-center">
+              <div
+                class="bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400 p-4 rounded-lg"
+              >
+                <i class="fas fa-exclamation-triangle mr-2"></i>
+                <span class="text-sm"
+                  >High risk, potential loss if not satisfied</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Trial Program -->
+          <div
+            class="bg-primary-600 text-white rounded-2xl p-8 shadow-2xl relative overflow-hidden"
+          >
+            <div
+              class="absolute top-4 right-4 bg-yellow-400 text-black px-3 py-1 rounded-full text-sm font-bold"
+            >
+              RECOMMENDED
+            </div>
+
+            <div class="text-center mb-6">
+              <i class="fas fa-shield-alt text-4xl mb-4"></i>
+              <h3 class="text-2xl font-bold">TryFirst Program</h3>
+            </div>
+
+            <div class="space-y-4">
+              <div class="flex items-center justify-between">
+                <span class="text-primary-100">Trial Period</span>
+                <span class="font-semibold text-green-300">FREE</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-primary-100">Shipping Both Ways</span>
+                <span class="font-semibold text-green-300">FREE</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-primary-100">Setup Fee</span>
+                <span class="font-semibold text-green-300">FREE</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-primary-100">Product (if kept)</span>
+                <span class="font-semibold">$89.00</span>
+              </div>
+              <hr class="border-primary-400" />
+              <div class="flex items-center justify-between font-bold text-lg">
+                <span>Total Risk</span>
+                <span class="text-green-300">$0.00</span>
+              </div>
+            </div>
+
+            <div class="mt-6 text-center">
+              <div class="bg-green-500/20 text-green-200 p-4 rounded-lg">
+                <i class="fas fa-check-circle mr-2"></i>
+                <span class="text-sm">Zero risk, pay only if you love it</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final CTA with Guarantee -->
+    <section class="py-16 bg-gray-900 text-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl md:text-5xl font-bold mb-6">
+          Ready to Try Risk-Free?
+        </h2>
+        <p class="text-xl mb-8 text-gray-300 max-w-2xl mx-auto">
+          Join thousands of satisfied customers who discovered their perfect
+          products through our trial program.
+        </p>
+
+        <!-- Guarantee Badges -->
+        <div class="grid md:grid-cols-4 gap-6 mb-12">
+          <div class="text-center">
+            <div
+              class="bg-green-500/20 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3"
+            >
+              <i class="fas fa-shield-alt text-green-400 text-2xl"></i>
+            </div>
+            <h4 class="font-semibold text-green-400">100% Guarantee</h4>
+            <p class="text-sm text-gray-400">Love it or return it</p>
+          </div>
+
+          <div class="text-center">
+            <div
+              class="bg-blue-500/20 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3"
+            >
+              <i class="fas fa-truck text-blue-400 text-2xl"></i>
+            </div>
+            <h4 class="font-semibold text-blue-400">Free Shipping</h4>
+            <p class="text-sm text-gray-400">Both ways, always</p>
+          </div>
+
+          <div class="text-center">
+            <div
+              class="bg-purple-500/20 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3"
+            >
+              <i class="fas fa-clock text-purple-400 text-2xl"></i>
+            </div>
+            <h4 class="font-semibold text-purple-400">7 Full Days</h4>
+            <p class="text-sm text-gray-400">Try at your pace</p>
+          </div>
+
+          <div class="text-center">
+            <div
+              class="bg-yellow-500/20 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3"
+            >
+              <i class="fas fa-headset text-yellow-400 text-2xl"></i>
+            </div>
+            <h4 class="font-semibold text-yellow-400">24/7 Support</h4>
+            <p class="text-sm text-gray-400">We're here to help</p>
+          </div>
+        </div>
+
+        <!-- CTA Buttons -->
+        <div class="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+          <button
+            class="bg-primary-600 hover:bg-primary-700 text-white px-12 py-4 rounded-full text-lg font-bold transition-all transform hover:scale-105 shadow-2xl"
+          >
+            <i class="fas fa-rocket mr-2"></i>
+            Start Your 7-Day Trial
+          </button>
+
+          <button
+            class="border border-gray-500 text-gray-300 hover:bg-gray-800 hover:text-white px-12 py-4 rounded-full text-lg font-semibold transition-all"
+          >
+            <i class="fas fa-phone mr-2"></i>
+            Questions? Call Us
+          </button>
+        </div>
+
+        <!-- Trust Indicators -->
+        <div class="text-center text-gray-400 text-sm">
+          <p class="mb-2">
+            <i class="fas fa-users mr-2"></i>
+            Trusted by 50,000+ happy customers
+          </p>
+          <p>
+            <i class="fas fa-star mr-1"></i>
+            <i class="fas fa-star mr-1"></i>
+            <i class="fas fa-star mr-1"></i>
+            <i class="fas fa-star mr-1"></i>
+            <i class="fas fa-star mr-2"></i>
+            4.9/5 average rating from verified buyers
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-4 gap-8">
+          <div>
+            <div class="flex items-center mb-4">
+              <i class="fas fa-gem text-primary-600 text-2xl mr-2"></i>
+              <span class="text-xl font-bold">TryFirst</span>
+            </div>
+            <p class="text-gray-400 mb-4">
+              Revolutionizing online shopping with risk-free trials.
+            </p>
+            <div class="flex space-x-4">
+              <a
+                href="#"
+                class="text-gray-400 hover:text-white transition-colors"
+              >
+                <i class="fab fa-facebook"></i>
+              </a>
+              <a
+                href="#"
+                class="text-gray-400 hover:text-white transition-colors"
+              >
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a
+                href="#"
+                class="text-gray-400 hover:text-white transition-colors"
+              >
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a
+                href="#"
+                class="text-gray-400 hover:text-white transition-colors"
+              >
+                <i class="fab fa-linkedin"></i>
+              </a>
+            </div>
+          </div>
+
+          <div>
+            <h4 class="font-semibold mb-4">Quick Links</h4>
+            <ul class="space-y-2 text-gray-400">
+              <li>
+                <a
+                  href="#how-it-works"
+                  class="hover:text-white transition-colors"
+                  >How It Works</a
+                >
+              </li>
+              <li>
+                <a href="#products" class="hover:text-white transition-colors"
+                  >Products</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#testimonials"
+                  class="hover:text-white transition-colors"
+                  >Reviews</a
+                >
+              </li>
+              <li>
+                <a href="#pricing" class="hover:text-white transition-colors"
+                  >Pricing</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="font-semibold mb-4">Support</h4>
+            <ul class="space-y-2 text-gray-400">
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >Help Center</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >Contact Us</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >Shipping Info</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >Returns</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="font-semibold mb-4">Legal</h4>
+            <ul class="space-y-2 text-gray-400">
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >Privacy Policy</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >Terms of Service</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >Refund Policy</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >Cookie Policy</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <hr class="border-gray-700 my-8" />
+
+        <div class="text-center text-gray-400">
+          <p>
+            &copy; 2024 TryFirst. All rights reserved. Made with
+            <i class="fas fa-heart text-red-500"></i> for better shopping.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+      const video = document.getElementById("promoVideo");
+      const playButton = document.getElementById("playButton");
+      const overlay = document.getElementById("videoOverlay");
+
+      playButton.addEventListener("click", function () {
+        video.play();
+        playButton.style.display = "none";
+        overlay.style.display = "none";
+        video.setAttribute("controls", "true");
+      });
+    </script>
+    <!-- Custom JavaScript -->
+    <script src="../static/js/script.js"></script>
+  </body>
+</html>
